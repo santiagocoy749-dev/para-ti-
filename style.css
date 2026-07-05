@@ -1,0 +1,419 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: radial-gradient(circle at bottom,
+    rgb(18,25,70),
+    rgb(1,2,20) 70%);
+
+}
+
+
+.intro{
+
+    position: fixed;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgb(1,2,20);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 1000;
+
+}
+
+.sobre{
+
+    width: 280px;
+    height: 180px;
+
+    background: #f7dada;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: .7s;
+
+    box-shadow: 0 0 30px rgba(255,255,255,.15);
+
+}
+
+.sobre:hover{
+
+    transform: scale(1.05);
+
+}
+
+.sobre p{
+
+    font-size: 28px;
+
+    color: rgb(70,70,70);
+
+    user-select: none;
+
+}
+
+.desaparecer{
+
+    opacity: 0;
+
+    transform: scale(2);
+
+    transition: 1.5s;
+
+}
+
+
+.cielo{
+
+    position: relative;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+}
+
+.oculto{
+
+    display: none;
+
+}
+
+
+.cielo span{
+
+    position: absolute;
+
+    color: white;
+
+    user-select: none;
+
+    animation: titilar 2s infinite;
+
+}
+
+@keyframes titilar{
+
+    0%{
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+    50%{
+
+        opacity: .4;
+
+        transform: scale(.8);
+
+    }
+
+    100%{
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+.luna{
+
+    position: absolute;
+
+    top: 60px;
+
+    right: 80px;
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    background: rgb(245,245,245);
+
+    box-shadow:
+    0 0 30px white,
+    0 0 60px rgba(255,255,255,.5);
+
+}
+
+
+.corazon{
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 55%;
+
+    width: 90px;
+
+    height: 90px;
+
+    background: crimson;
+
+    transform:
+    translate(-50%,-50%)
+    rotate(-45deg);
+
+    cursor: pointer;
+
+    animation: latido 1.2s infinite;
+
+    transition: .4s;
+
+}
+
+.corazon:hover{
+
+    filter: brightness(120%);
+
+}
+
+.corazon::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:crimson;
+
+    top:-45px;
+
+}
+
+.corazon::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:crimson;
+
+    left:45px;
+
+}
+
+@keyframes latido{
+
+    0%{
+
+        transform:
+        translate(-50%,-50%)
+        rotate(-45deg)
+        scale(1);
+
+    }
+
+    50%{
+
+        transform:
+        translate(-50%,-50%)
+        rotate(-45deg)
+        scale(1.15);
+
+    }
+
+    100%{
+
+        transform:
+        translate(-50%,-50%)
+        rotate(-45deg)
+        scale(1);
+
+    }
+
+}
+
+.carta{
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:650px;
+
+    max-width:90%;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+    display:none;
+
+    text-align:center;
+
+}
+
+.carta h1{
+
+    margin-bottom:20px;
+
+}
+
+.carta p{
+
+    line-height:32px;
+
+    font-size:20px;
+
+}
+
+
+
+.estrella-fugaz{
+
+    position:absolute;
+
+    width:140px;
+
+    height:2px;
+
+    background:white;
+
+    border-radius:50px;
+
+    box-shadow:
+    0 0 10px white,
+    0 0 30px white;
+
+    transform:rotate(-30deg);
+
+    animation:fugaz 2.5s linear;
+
+}
+
+@keyframes fugaz{
+
+    from{
+
+        transform:
+        translate(-300px,-200px)
+        rotate(-30deg);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+        translate(1800px,900px)
+        rotate(-30deg);
+
+        opacity:0;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .luna{
+
+        width:80px;
+        height:80px;
+
+        top:30px;
+        right:30px;
+
+    }
+
+    .corazon{
+
+        width:70px;
+        height:70px;
+
+    }
+
+    .corazon::before,
+    .corazon::after{
+
+        width:70px;
+        height:70px;
+
+    }
+
+    .corazon::before{
+
+        top:-35px;
+
+    }
+
+    .corazon::after{
+
+        left:35px;
+
+    }
+
+    .sobre{
+
+        width:220px;
+
+        height:150px;
+
+    }
+
+    .sobre p{
+
+        font-size:22px;
+
+    }
+
+}
